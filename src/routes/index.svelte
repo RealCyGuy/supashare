@@ -135,7 +135,7 @@
       placeholder="example.png"
     />
     <button
-      class="mx-auto mt-5 px-2 py-1 border-2 border-green-400 inline-flex outline-none focus:outline-none focus:ring-2 ring-green-400 ring-offset-black ring-offset-2 hover:scale-110 transform duration-75 rounded-lg"
+      class="mx-auto mt-5 px-2 py-1 border-2 border-green-400 inline-flex outline-none focus:outline-none focus:ring-2 ring-green-400 ring-offset-black ring-offset-2 hover:border-green-700 duration-75 rounded-lg"
       >Upload
       {#if uploading}
         <svg
