@@ -18,6 +18,9 @@
     event.preventDefault();
     if (!uploading) {
       if (files && name) {
+        if (files[0].size > 50000000) {
+          return lastResult = "Error: File must be under 50MB.";
+        }
         console.log("started uploading", name);
         uploading = true;
         supabase.storage
