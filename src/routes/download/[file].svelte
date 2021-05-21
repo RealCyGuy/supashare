@@ -1,8 +1,32 @@
 <script context="module">
   export async function load({ page, fetch, session, context }) {
+    let file = page.params.file;
+    let size;
+    let downloadLink;
+    const supabase = createClient(
+      import.meta.env.VITE_SUPABASE_URL,
+      import.meta.env.VITE_SUPABASE_PUBLIC_KEY
+    );
+    const { data, error } = await supabase.storage.from("files").download(file);
+    if (error) {
+      if (error.status == 400) {
+        file = "file not found";
+      } else {
+        file = "couldn't get file";
+      }
+    } else {
+      size = formatSize(data.size);
+      downloadLink = await supabase.storage
+        .from("files")
+        .createSignedUrl(file, 60);
+      downloadLink = downloadLink.signedURL;
+    }
     return {
       props: {
-        file: page.params.file,
+        file: file,
+        downloadLink: downloadLink,
+        size: size,
+        error: error,
       },
     };
   }
@@ -12,48 +36,20 @@
   import { createClient } from "@supabase/supabase-js";
   import { formatSize } from "$lib/size.js";
   export let file;
-  let downloadLink;
-  let size = "";
-  let error;
-  let fetched;
-  const supabase = createClient(
-    import.meta.env.VITE_SUPABASE_URL,
-    import.meta.env.VITE_SUPABASE_PUBLIC_KEY
-  );
-  supabase.storage
-    .from("files")
-    .download(file)
-    .then((result) => {
-      error = result.error;
-      if (error) {
-        if (error.status == 400) {
-          file = "file not found";
-        } else {
-          file = "couldn't get file";
-        }
-      }
-      if (result.data) {
-        size = formatSize(result.data.size);
-        downloadLink = URL.createObjectURL(result.data);
-      }
-      fetched = true;
-    });
+  export let downloadLink;
+  export let size = "";
+  export let error;
 </script>
 
 <svelte:head>
   <title>supashare - {file}</title>
-  {#if fetched}
-    {#if error}
-      <meta
-        name="description"
-        content="There was an error getting this file."
-      />
-    {:else}
-      <meta
-        name="description"
-        content="Download {file} ({size}) from supashare."
-      />
-    {/if}
+  {#if error}
+    <meta name="description" content="There was an error getting this file." />
+  {:else}
+    <meta
+      name="description"
+      content="Download {file} ({size}) from supashare."
+    />
   {/if}
 </svelte:head>
 
