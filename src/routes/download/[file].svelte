@@ -16,15 +16,11 @@
       }
     } else {
       size = formatSize(data.size);
-      downloadLink = await supabase.storage
-        .from("files")
-        .createSignedUrl(file, 60);
-      downloadLink = downloadLink.signedURL;
     }
     return {
       props: {
         file: file,
-        downloadLink: downloadLink,
+        data: data,
         size: size,
         error: error,
       },
@@ -36,9 +32,13 @@
   import { createClient } from "@supabase/supabase-js";
   import { formatSize } from "$lib/size.js";
   export let file;
-  export let downloadLink;
+  export let data;
   export let size = "";
   export let error;
+  let downloadLink;
+  function download() {
+    downloadLink = URL.createObjectURL(data);
+  }
 </script>
 
 <svelte:head>
@@ -63,8 +63,9 @@
       {file}
     </h1>
     <a
-      class="font-light px-3 py-1 border-2 border-green-400 rounded-md hover:border-green-700 duration-75 focus:ring-2 ring-green-400 ring-offset-black ring-offset-2 outline-none"
+      class="font-light px-3 py-1 border-2 border-green-400 rounded-md hover:border-green-700 duration-75 focus:ring-2 ring-green-400 ring-offset-black ring-offset-2 outline-none cursor-pointer"
       href={downloadLink}
+      on:click={download}
       download={file}>download {size}</a
     >
   {/if}
