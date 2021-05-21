@@ -43,7 +43,7 @@
   {#if error}
     <meta name="description" content="There was an error getting this file." />
   {:else}
-    <meta name="description" content="Download {file} from supashare." />
+    <meta name="description" content="Download {file} ({size}) from supashare." />
   {/if}
 </svelte:head>
 
