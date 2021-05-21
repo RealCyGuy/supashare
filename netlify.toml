@@ -4,4 +4,4 @@
   functions = "functions/"
 [template.environment]
   VITE_SUPABASE_URL = "Your supabase url."
-  VITE_SUPABASE_PUBLIC_KEY = "Your public key."
+  VITE_SUPABASE_PUBLIC_KEY = "Your supabase public key."
