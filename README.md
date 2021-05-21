@@ -2,6 +2,14 @@
 
 A supa simple file sharing website made with SvelteKit and Supabase Storage.
 
+<details>
+  <summary>
+   Screenshot
+  </summary>
+
+ [![supashare](https://gacjjjviyehyysgdeafw.supabase.co/storage/v1/object/sign/files/file.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJmaWxlcy9maWxlLnBuZyIsImlhdCI6MTYyMTYzNjE4MiwiZXhwIjoxOTM2OTk2MTgyfQ.eGlXZ2SDtPTBrrF6nAbBrgIR16QPXN6_jClHpmDy_5U)](https://supashare.netlify.app)
+</details>
+
 ## Hosting on Netlify
 
 Create a project on <https://supabase.io>.
