@@ -19,7 +19,7 @@
     if (!uploading) {
       if (files && name) {
         if (files[0].size > 50000000) {
-          return lastResult = "Error: File must be under 50MB.";
+          return (lastResult = "Error: File must be under 50MB.");
         }
         console.log("started uploading", name);
         uploading = true;
@@ -62,7 +62,6 @@
     }
   }
   function drop(event) {
-    console.log(123)
     files = event.dataTransfer.files;
     overCounter = 0;
     over = false;
@@ -80,7 +79,10 @@
 
 <svelte:head>
   <title>supashare</title>
-  <meta name="description" content="A supa simple open-source file sharing website.">
+  <meta
+    name="description"
+    content="A supa simple open-source file sharing website."
+  />
 </svelte:head>
 
 <div
