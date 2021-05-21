@@ -70,6 +70,11 @@
   function click() {
     fileInput.click();
   }
+  function keyDown(event) {
+    if (event.keyCode === 13) {
+      fileInput.click();
+    }
+  }
   function copy() {
     copyArea.focus();
     copyArea.select();
@@ -105,8 +110,10 @@
     />
     <div
       on:click={click}
+      on:keydown={keyDown}
       id="dropzone"
-      class="border-2 border-green-400 flex h-40 justify-center items-center relative cursor-pointer rounded-lg"
+      class="border-2 border-green-400 flex h-40 justify-center items-center relative cursor-pointer rounded-lg focus:ring-2 ring-green-400 ring-offset-black ring-offset-2 outline-none"
+      tabindex="0"
     >
       {#if over}
         <p class="w-1/2 text-center">You can drop that file here!</p>
