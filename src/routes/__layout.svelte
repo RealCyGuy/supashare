@@ -15,8 +15,9 @@
   class="absolute bottom-0 w-full flex items-center justify-between p-3 text-white text-sm"
 >
   <p>
-    made by <a class="text-green-400 hover:text-green-600" href="https://realcyguy.netlify.app"
-      >Cyrus Yip</a
+    made by <a
+      class="text-green-400 hover:text-green-600"
+      href="https://realcyguy.netlify.app">Cyrus Yip</a
     >
   </p>
   <p>
