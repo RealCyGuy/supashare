@@ -27,6 +27,8 @@
       if (error) {
         if (error.status == 400) {
           file = "file not found";
+        } else {
+          file = "couldn't get file"
         }
       }
       if (result.data) {
