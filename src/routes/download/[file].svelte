@@ -26,7 +26,7 @@
       error = result.error;
       if (result.data) {
         size = formatSize(result.data.size);
-        downloadLink = URL.createObjectURL(result.data);
+        downloadLink = createObjectURL(result.data);
       }
     });
 </script>
