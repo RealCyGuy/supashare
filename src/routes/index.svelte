@@ -112,7 +112,7 @@
       on:click={click}
       on:keydown={keyDown}
       id="dropzone"
-      class="border-2 border-green-400 flex h-40 justify-center items-center relative cursor-pointer rounded-lg focus:ring-2 ring-green-400 ring-offset-black ring-offset-2 outline-none"
+      class="border-2 border-green-400 flex h-40 justify-center items-center relative cursor-pointer rounded-lg focus:ring-2 ring-green-400 ring-offset-black ring-offset-2 outline-none hover:border-green-700 duration-75"
       tabindex="0"
     >
       {#if over}
@@ -129,7 +129,7 @@
     <label for="name" class="my-1">File name:</label>
     <input
       id="name"
-      class="text-white p-1 border-2 border-green-400 bg-black rounded-lg outline-none focus:ring-2 ring-green-400 ring-offset-black ring-offset-2"
+      class="text-white p-1 border-2 border-green-400 bg-black rounded-lg outline-none focus:ring-2 ring-green-400 ring-offset-black ring-offset-2 hover:border-green-700 duration-75"
       type="text"
       bind:value={name}
       placeholder="example.png"
@@ -166,8 +166,8 @@
       {:else}
         <p class="m-auto text-center w-3/4 mt-4">
           The download link is:
-          <a class="text-green-400" href={lastResult}>here</a>.
-          <span class="text-green-400 cursor-pointer" on:click={copy}>Copy</span
+          <a class="text-green-400 hover:text-green-600" href={lastResult}>here</a>.
+          <span class="text-green-400 cursor-pointer hover:text-green-600" on:click={copy}>Copy</span
           >.
         </p>
       {/if}
