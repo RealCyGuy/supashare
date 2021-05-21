@@ -15,6 +15,7 @@
   let downloadLink;
   let size = "";
   let error;
+  let fetched;
   const supabase = createClient(
     import.meta.env.VITE_SUPABASE_URL,
     import.meta.env.VITE_SUPABASE_PUBLIC_KEY
@@ -28,22 +29,31 @@
         if (error.status == 400) {
           file = "file not found";
         } else {
-          file = "couldn't get file"
+          file = "couldn't get file";
         }
       }
       if (result.data) {
         size = formatSize(result.data.size);
         downloadLink = URL.createObjectURL(result.data);
       }
+      fetched = true;
     });
 </script>
 
 <svelte:head>
   <title>supashare - {file}</title>
-  {#if error}
-    <meta name="description" content="There was an error getting this file." />
-  {:else}
-    <meta name="description" content="Download {file} ({size}) from supashare." />
+  {#if fetched}
+    {#if error}
+      <meta
+        name="description"
+        content="There was an error getting this file."
+      />
+    {:else}
+      <meta
+        name="description"
+        content="Download {file} ({size}) from supashare."
+      />
+    {/if}
   {/if}
 </svelte:head>
 
