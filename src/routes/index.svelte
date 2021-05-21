@@ -75,6 +75,11 @@
   }
 </script>
 
+<svelte:head>
+  <title>supashare</title>
+  <meta name="description" content="A supa simple open-source file sharing website.">
+</svelte:head>
+
 <div
   class="w-screen h-screen"
   on:dragover|preventDefault

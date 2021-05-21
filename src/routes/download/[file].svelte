@@ -31,6 +31,11 @@
     });
 </script>
 
+<svelte:head>
+  <title>supashare - {file}</title>
+  <meta name="description" content="Download {file} from supashare.">
+</svelte:head>
+
 <div class="min-h-screen flex justify-center items-center text-white flex-col">
   {#if error}
     <p>{error.message}</p>
