@@ -19,6 +19,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@supabase/supabase-js": "^1.11.14"
+    "@supabase/supabase-js": "^1.11.14",
+    "encoding": "^0.1.13"
   }
 }
