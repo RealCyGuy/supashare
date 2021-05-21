@@ -48,7 +48,7 @@
   {:else}
     <meta
       name="description"
-      content="Download {file} ({size}) from supashare."
+      content="Download {file} ({size}) from supashare, a supa simple open-source file sharing website."
     />
   {/if}
 </svelte:head>
