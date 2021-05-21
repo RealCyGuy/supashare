@@ -122,13 +122,13 @@
     <label for="name" class="my-1">File name:</label>
     <input
       id="name"
-      class="text-black p-1"
+      class="text-white p-1 border-2 border-green-400 bg-black rounded-lg outline-none focus:ring-2 ring-green-400 ring-offset-black ring-offset-2"
       type="text"
       bind:value={name}
       placeholder="example.png"
     />
     <button
-      class="mx-auto mt-5 px-2 py-1 border-2 border-green-400 inline-flex focus:outline-none hover:scale-110 transform duration-75 rounded-lg"
+      class="mx-auto mt-5 px-2 py-1 border-2 border-green-400 inline-flex outline-none focus:outline-none focus:ring-2 ring-green-400 ring-offset-black ring-offset-2 hover:scale-110 transform duration-75 rounded-lg"
       >Upload
       {#if uploading}
         <svg

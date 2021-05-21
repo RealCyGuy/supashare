@@ -57,7 +57,7 @@
       {file}
     </h1>
     <a
-      class="font-light px-3 py-1 border-2 border-green-400 rounded-md hover:border-green-700 duration-75"
+      class="font-light px-3 py-1 border-2 border-green-400 rounded-md hover:border-green-700 duration-75 focus:ring-2 ring-green-400 ring-offset-black ring-offset-2 outline-none"
       href={downloadLink}
       download={file}>download {size}</a
     >
