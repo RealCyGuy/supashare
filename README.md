@@ -16,7 +16,7 @@ Create a project on <https://supabase.io>.
 Then, create a storage bucket called `files` and set `INSERT` and `SELECT` policies to
 
 ```sql
-bucket_id = 'files'
+(bucket_id = 'files':: text)
 ```
 
 You can deploy to netlify with this button:
