@@ -14,13 +14,19 @@
     import.meta.env.VITE_SUPABASE_URL,
     import.meta.env.VITE_SUPABASE_PUBLIC_KEY
   );
+  const maxFileSize = parseInt(import.meta.env.VITE_MAX_FILE_SIZE, 10);
   function upload(event) {
     event.preventDefault();
     if (!uploading) {
       if (files && name) {
-        if (files[0].size > 50000000) {
-          return (lastResult = "Error: File must be under 50MB.");
+        if (files[0].size > maxFileSize * 1000000) {
+          return (lastResult =
+            "Error: File must be under " + maxFileSize.toString() + "MB.");
         }
+        // if (files[0].size > 50000000) {
+        //   return (lastResult =
+        //     "Error: File must be under 50MB.");
+        // }
         console.log("started uploading", name);
         uploading = true;
         supabase.storage
