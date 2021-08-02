@@ -29,6 +29,9 @@
           .then((result) => {
             uploading = false;
             if (result.error) {
+              if (result.error.message.startsWith("duplicate key")) {
+                result.error.message = "This file name has been taken";
+              }
               lastResult = "Error: " + result.error.message + ".";
             } else {
               lastResult =
@@ -166,8 +169,12 @@
       {:else}
         <p class="m-auto text-center w-3/4 mt-4">
           The download link is:
-          <a class="text-green-400 hover:text-green-600" href={lastResult}>here</a>.
-          <span class="text-green-400 cursor-pointer hover:text-green-600" on:click={copy}>Copy</span
+          <a class="text-green-400 hover:text-green-600" href={lastResult}
+            >here</a
+          >.
+          <span
+            class="text-green-400 cursor-pointer hover:text-green-600"
+            on:click={copy}>Copy</span
           >.
         </p>
       {/if}
@@ -176,7 +183,8 @@
   {#if lastResult}
     {#if !lastResult.startsWith("Error:")}
       <textarea class="absolute z-[-1]" bind:this={copyArea}
-        >{lastResult}</textarea>
+        >{lastResult}</textarea
+      >
     {/if}
   {/if}
 </div>
